@@ -1,0 +1,48 @@
+{
+  "name": "Express Boilerplate",
+  "dockerComposeFile": ["docker-compose.yml"],
+  "service": "app",
+  "workspaceFolder": "/work",
+  "mounts": [
+    "type=bind,source=${localEnv:HOME}/.ssh,target=/home/vscode/.ssh,readonly"
+  ],
+  "forwardPorts": [3000],
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:2": {
+      "username": "automatic",
+      "uid": "automatic",
+      "gid": "automatic",
+      "installZsh": true,
+      "upgradePackages": true
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "humao.rest-client",
+        "visualstudioexptteam.vscodeintellicode",
+        "visualstudiotxptteam.vscodeintellicode-completions",
+        "ms-azuretools.vscode-docker",
+        "dbaeumer.vscode-eslint",
+        "christian-kohler.npm-intellisense",
+        "eg2.vscode-npm-script",
+        "esbenp.prettier-vscode",
+        "wallabyjs.console-ninja",
+        "usernamehw.errorlens",
+        "editorconfig.editorconfig"
+      ],
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "zsh",
+        "editor.formatOnPaste": true,
+        "editor.formatOnSave": true,
+        "editor.guides.bracketPairs": "active",
+        "scm.defaultViewMode": "tree",
+        "debug.internalConsoleOptions": "neverOpen",
+        "eslint.validate": ["javascript", "typescript"]
+      }
+    }
+  },
+  "postCreateCommand": "zsh /work/.devcontainer/post-script.zsh",
+  "remoteUser": "vscode",
+  "shutdownAction": "stopCompose"
+}
