@@ -1,10 +1,1 @@
-FROM node:21-alpine
-
-ARG USERNAME=vscode
-ARG USER_UID=1000
-ARG USER_GID=${USER_UID}
-
-ENV PNPM_HOME="/pnpm"
-ENV PATH="$PNPM_HOME:$PATH"
-
-RUN corepack enable
+FROM mcr.microsoft.com/devcontainers/base:ubuntu-22.04

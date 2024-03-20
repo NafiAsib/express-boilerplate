@@ -1,20 +1,22 @@
 {
   "name": "Express Boilerplate",
-  "dockerComposeFile": ["docker-compose.yml"],
-  "service": "app",
-  "workspaceFolder": "/work",
-  "mounts": [
-    "type=bind,source=${localEnv:HOME}/.ssh,target=/home/vscode/.ssh,readonly"
-  ],
-  "forwardPorts": [3000],
+  "dockerComposeFile": "compose.yml",
+  "service": "devcontainer",
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  // "mounts": [
+  //   "type=bind,source=${localEnv:HOME}/.ssh,target=/home/vscode/.ssh,readonly"
+  // ],
   "features": {
     "ghcr.io/devcontainers/features/common-utils:2": {
-      "username": "automatic",
-      "uid": "automatic",
-      "gid": "automatic",
-      "installZsh": true,
-      "upgradePackages": true
-    }
+      "configureZshAsDefaultShell": true
+    },
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "20"
+    },
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {
+      "dockerDashComposeVersion": "v2"
+    },
+    "ghcr.io/devcontainers/features/git:1": {}
   },
   "customizations": {
     "vscode": {
@@ -42,7 +44,8 @@
       }
     }
   },
-  "postCreateCommand": "zsh /work/.devcontainer/post-script.zsh",
-  "remoteUser": "vscode",
-  "shutdownAction": "stopCompose"
+  "forwardPorts": [3000, 5432, 1025, 8025],
+  "postStartCommand": "zsh .devcontainer/post-script.zsh"
+  // "remoteUser": "vscode",
+  // "shutdownAction": "stopCompose"
 }
