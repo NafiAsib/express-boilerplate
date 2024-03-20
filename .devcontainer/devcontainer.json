@@ -3,9 +3,9 @@
   "dockerComposeFile": "compose.yml",
   "service": "devcontainer",
   "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
-  // "mounts": [
-  //   "type=bind,source=${localEnv:HOME}/.ssh,target=/home/vscode/.ssh,readonly"
-  // ],
+  "mounts": [
+    "type=bind,source=${localEnv:HOME}/.ssh,target=/home/vscode/.ssh,readonly"
+  ],
   "features": {
     "ghcr.io/devcontainers/features/common-utils:2": {
       "configureZshAsDefaultShell": true
