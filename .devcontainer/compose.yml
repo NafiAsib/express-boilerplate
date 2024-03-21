@@ -3,6 +3,6 @@ services:
     build:
       context: .
     volumes:
-      - ../..:/workspaces:rw,cached
+      - ..:/workspace:rw,cached
     init: true
     command: sleep infinity
