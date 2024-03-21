@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "tsc-watch --onSuccess \"pnpm start\"",
     "start": "node --env-file=.env build/index.js",
-    "test": "node --test --require ts-node/register src/**/*.spec.ts"
+    "test": "node --test --require ts-node/register src/**/*.spec.ts",
+    "prepare": "husky"
   },
   "keywords": [],
   "author": "",
@@ -23,6 +24,7 @@
     "pino-pretty": "^10.3.1"
   },
   "devDependencies": {
+    "@biomejs/biome": "^1.6.1",
     "@types/bcrypt": "^5.0.2",
     "@types/cookie-parser": "^1.4.7",
     "@types/cors": "^2.8.17",
@@ -30,8 +32,16 @@
     "@types/jsonwebtoken": "^9.0.6",
     "@types/morgan": "^1.9.9",
     "@types/node": "^20.11.30",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
     "ts-node": "^10.9.2",
     "tsc-watch": "^6.0.4",
     "typescript": "^5.4.2"
+  },
+
+  "lint-staged": {
+    "*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}": [
+      "biome check --apply --files-ignore-unknown=true"
+    ]
   }
 }

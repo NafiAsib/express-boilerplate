@@ -1,18 +1,26 @@
 {
-	"$schema": "https://biomejs.dev/schemas/1.6.1/schema.json",
-	"organizeImports": {
-		"enabled": true
-	},
-	"linter": {
-		"enabled": true,
-		"rules": {
-			"recommended": true,
-			"style": {
-				"noParameterAssign": "warn"
-			},
-			"suspicious": {
-				"noExplicitAny":"warn"
-			}
-		}
-	}
+  "$schema": "https://biomejs.dev/schemas/1.6.1/schema.json",
+  "files": {
+    "ignore": ["build", "node_modules"]
+  },
+  "organizeImports": {
+    "enabled": true
+  },
+  "formatter": {
+    "enabled": true,
+    "indentWidth": 2,
+    "indentStyle": "space"
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true,
+      "style": {
+        "noParameterAssign": "warn"
+      },
+      "suspicious": {
+        "noExplicitAny": "warn"
+      }
+    }
+  }
 }
